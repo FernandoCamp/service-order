@@ -1,6 +1,7 @@
 package br.com.campanate.orders.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import br.com.campanate.orders.entity.Order;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class OrderDto {
 	private LocalDateTime closed;
 	private String problemDescription;
 	private boolean prioritary;
+	private List<String> orderFiles;
 	
 	public OrderDto (Order order) {
 		this.id = order.getId();
@@ -30,6 +32,7 @@ public class OrderDto {
 		this.closed = order.getClosed();
 		this.problemDescription = order.getProblemDescription();
 		this.prioritary = order.isPrioritary();
+		this.orderFiles = order.orderFilesAddress();
 	}
 	
 }

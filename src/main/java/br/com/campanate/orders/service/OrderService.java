@@ -35,7 +35,6 @@ public class OrderService {
 	}
 	
 	public Order saveOrder(Order order) {
-		System.out.println(order.getStatus().getId());
 		if (order.getStatus() != null) {
 			order.setClosed(order.getStatus().getId() == 2 ? LocalDateTime.now() : null);
 		}
