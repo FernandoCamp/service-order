@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -26,6 +28,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	@ColumnDefault("NOW()")
 	@Column(insertable = false, updatable = false)
 	private LocalDateTime registeredAt;
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
