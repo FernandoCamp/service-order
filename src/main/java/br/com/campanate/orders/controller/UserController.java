@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.campanate.orders.dto.UserDto;
 import br.com.campanate.orders.entity.User;
 import br.com.campanate.orders.service.UserService;
 
@@ -16,7 +17,7 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping("/users")
-	public Iterable<User> findAllUsers() {
+	public Iterable<UserDto> findAllUsers() {
 		return userService.findAllUsers();
 	}
 	

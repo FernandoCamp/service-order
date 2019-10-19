@@ -1,6 +1,6 @@
 package br.com.campanate.orders.entity;
 
-import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 
 import lombok.Getter;
@@ -25,6 +26,7 @@ public class User {
 	private String login;
 	private String password;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	private List<Order> order;
+	@MapKeyColumn(name = "id")
+	private Map<Integer, Order> order;
 	
 }
